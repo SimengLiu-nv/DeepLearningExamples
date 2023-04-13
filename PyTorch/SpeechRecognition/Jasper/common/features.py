@@ -249,7 +249,7 @@ class FilterbankFeatures(BaseFeatures):
     def stft(self, x):
         return torch.stft(x, n_fft=self.n_fft, hop_length=self.hop_length,
                           win_length=self.win_length,
-                          window=self.window.to(dtype=torch.float))
+                          window=self.window.to(dtype=torch.float), return_complex=False)
 
     @torch.no_grad()
     def calculate_features(self, x, seq_len):
